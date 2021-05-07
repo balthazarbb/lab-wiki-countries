@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 class CountriesList extends Component{
 
     state={
@@ -18,9 +19,10 @@ class CountriesList extends Component{
         return(
             <div>
             {
-                this.state.countries.map((manish)=>{
-                    console.log(manish)
-                return <div>{manish.name}</div>
+                this.state.countries.map((manish, i)=>{
+                return <div key={i}>
+                <Link to={`/countires/${i}`}>{manish.name}</Link>
+                </div>
             })
             }
             </div>
